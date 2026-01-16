@@ -42,4 +42,14 @@ public class JdbcCategoryQueryRepository implements CategoryQueryRepository {
         );
 
     }
+
+    @Override
+    public boolean existsById(UUID id) {
+        Integer count = jdbc.queryForObject(
+                "SELECT COUNT(*) FROM categories WHERE id = ?",
+                Integer.class,
+                id
+        );
+        return count != null && count > 0;
+    }
 }

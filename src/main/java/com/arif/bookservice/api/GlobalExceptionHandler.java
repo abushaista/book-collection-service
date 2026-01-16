@@ -1,6 +1,7 @@
 package com.arif.bookservice.api;
 
 import com.arif.bookservice.application.book.BookNotFoundException;
+import com.arif.bookservice.application.category.CategoryNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -25,6 +26,16 @@ public class GlobalExceptionHandler {
     public Map<String, String> handleGeneric(Exception ex) {
         return Map.of(
                 "error", "Internal server error"
+        );
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, String> handleCategoryNotFound(
+            CategoryNotFoundException ex) {
+
+        return Map.of(
+                "error", ex.getMessage()
         );
     }
 }

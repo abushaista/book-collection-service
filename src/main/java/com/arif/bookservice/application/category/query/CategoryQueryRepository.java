@@ -7,4 +7,5 @@ import java.util.UUID;
 public interface CategoryQueryRepository {
     List<CategoryView> findAll();
     Optional<CategoryView> findById(UUID id);
+    boolean existsById(UUID id);
 }
