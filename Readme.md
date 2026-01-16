@@ -134,12 +134,12 @@ http://localhost:8080/h2-console
 - Commands never return domain entities.
 
 ## 2️⃣ Clean Architecture Boundaries
-| Layer              | Responsibility                |
-| ------------------ | ----------------------------- |
-| `domain`           | Business rules & invariants   |
-| `application`      | Use cases & orchestration     |
-| `infrastructure`   | Database & technical concerns |
-| `interfaceadapter` | REST controllers & DTOs       |
+| Layer            | Responsibility                |
+|------------------| ----------------------------- |
+| `domain`         | Business rules & invariants   |
+| `application`    | Use cases & orchestration     |
+| `infrastructure` | Database & technical concerns |
+| `api`            | REST controllers & DTOs       |
 
 ## 3️⃣ Persistence Strategy
 - **Command Side**
