@@ -1,7 +1,6 @@
 package com.arif.bookservice.application.book.query;
 
 import com.arif.bookservice.application.book.BookNotFoundException;
-import com.arif.bookservice.domain.book.BookId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

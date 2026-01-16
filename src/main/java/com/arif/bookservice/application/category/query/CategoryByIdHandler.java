@@ -1,7 +1,5 @@
 package com.arif.bookservice.application.category.query;
 
-import com.arif.bookservice.domain.category.Category;
-import com.arif.bookservice.domain.category.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
