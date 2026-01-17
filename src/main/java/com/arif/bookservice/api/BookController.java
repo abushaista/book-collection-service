@@ -1,6 +1,7 @@
 package com.arif.bookservice.api;
 
 import com.arif.bookservice.api.dto.CreateBookRequest;
+import com.arif.bookservice.api.dto.UpdateBookRequest;
 import com.arif.bookservice.application.book.command.CreateBookCommand;
 import com.arif.bookservice.application.book.command.BookCommandHandler;
 import com.arif.bookservice.application.book.command.DeleteBookCommand;
@@ -55,6 +56,7 @@ public class BookController {
             @ApiResponse(responseCode = "404", description = "Book not found")
     })
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public BookView get(@PathVariable UUID id) {
         return bookQueryHandler.getBook(id);
     }
@@ -73,15 +75,15 @@ public class BookController {
     })
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable UUID id, @RequestBody UpdateBookCommand body) {
+    public void update(@PathVariable UUID id, @RequestBody UpdateBookRequest body) {
         commandHandler.update(new UpdateBookCommand(
                 id,
-                body.title(),
-                body.author(),
-                body.isbn(),
-                body.publicationYear(),
-                body.categoryId(),
-                body.description()
+                body.getTitle(),
+                body.getAuthor(),
+                body.getIsbn(),
+                body.getPublicationYear(),
+                body.getCategoryId(),
+                body.getDescription()
         ));
     }
 

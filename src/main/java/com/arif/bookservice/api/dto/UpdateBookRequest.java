@@ -4,9 +4,11 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
 
 import java.util.UUID;
 
+@Getter
 public class UpdateBookRequest {
     @NotBlank(message = "Title is required")
     private String title;
